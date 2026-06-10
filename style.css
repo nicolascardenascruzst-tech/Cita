@@ -1,0 +1,296 @@
+/* --- CONFIGURACIÓN BASE --- */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    background-color: #15100a; /* Fondo casi negro con matiz cálido */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #e0d0c0;
+}
+
+#canvas-matrix {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.15;
+}
+
+/* --- TARJETAS PRINCIPALES --- */
+.card {
+    background: rgba(31, 24, 17, 0.96);
+    border: 1px solid rgba(240, 198, 140, 0.25);
+    box-shadow: 0 12px 45px rgba(0, 0, 0, 0.8), 0 0 25px rgba(240, 198, 140, 0.1);
+    padding: 45px;
+    border-radius: 20px;
+    text-align: center;
+    z-index: 2;
+    max-width: 500px;
+    width: 90%;
+    box-sizing: border-box;
+    backdrop-filter: blur(10px);
+    animation: fadeIn 0.7s ease-out forwards;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- ELEMENTOS DE TEXTO --- */
+h2 {
+    margin: 0 0 12px 0;
+    font-size: 26px;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+p {
+    color: #c5b5a2;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(230, 160, 112, 0.3), transparent);
+    margin: 30px 0;
+}
+
+.highlight-text {
+    color: #f0c68c;
+}
+
+/* --- ENTRADAS DE TEXTO Y FORMULARIOS --- */
+input[type="text"] {
+    background: #19140f;
+    border: 1px solid rgba(240, 198, 140, 0.4);
+    color: #f0c68c;
+    padding: 16px;
+    width: 100%;
+    text-align: center;
+    font-size: 17px;
+    font-family: 'Courier New', monospace;
+    border-radius: 10px;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #f0c68c;
+    box-shadow: 0 0 15px rgba(240, 198, 140, 0.25);
+}
+
+.error-text {
+    color: #ff6677;
+    font-size: 14px;
+    margin-top: 12px;
+    display: none;
+}
+
+.shake {
+    animation: shakeAnim 0.4s ease-in-out;
+    border-color: #ff6677 !important;
+}
+
+@keyframes shakeAnim {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-8px); }
+    40%, 80% { transform: translateX(8px); }
+}
+
+/* --- BOTONES --- */
+button, .btn-gradient {
+    background: linear-gradient(135deg, #f0c68c, #e6a070);
+    color: #1a150f;
+    border: none;
+    padding: 16px 35px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+button:hover, .btn-gradient:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(230, 160, 112, 0.4);
+}
+
+.btn-secondary {
+    background: #2a2016;
+    color: #f0c68c;
+    border: 1px solid rgba(240, 198, 140, 0.5);
+}
+
+.btn-flex {
+    display: flex;
+    gap: 15px;
+}
+
+/* --- DISEÑO EXCLUSIVO DEL CASINO --- */
+.casino-viewport {
+    height: 140px;
+    border: 1px solid rgba(240, 198, 140, 0.2);
+    background: #14100b;
+    border-radius: 15px;
+    margin: 30px 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.casino-strip {
+    transition: transform 0.1s linear;
+    font-size: 22px;
+    font-weight: bold;
+    color: #a59582;
+}
+
+.casino-strip.active-spin {
+    animation: spinEffect 0.15s infinite linear;
+}
+
+@keyframes spinEffect {
+    0% { transform: translateY(-25px); opacity: 0.3; filter: blur(2px); }
+    100% { transform: translateY(25px); opacity: 0.7; filter: blur(2px); }
+}
+
+.chosen-highlight {
+    font-size: 28px;
+    color: #f0c68c;
+    text-shadow: 0 0 20px rgba(240, 198, 140, 0.5);
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    from { transform: scale(0.8); }
+    to { transform: scale(1); }
+}
+
+/* --- GRILLA DE CONFIGURACIÓN --- */
+.options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.selection-row {
+    background: #19140f;
+    border: 1px solid rgba(240, 198, 140, 0.15);
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 16px;
+    color: #e0d0c0;
+}
+
+.selection-row:hover {
+    border-color: rgba(240, 198, 140, 0.5);
+    background: rgba(240, 198, 140, 0.04);
+}
+
+.selection-row input {
+    margin-right: 18px;
+    accent-color: #e6a070;
+    transform: scale(1.3);
+}
+
+/* --- DETALLES PANTALLA FINAL --- */
+.success-title {
+    color: #e6a070;
+}
+
+.summary-box {
+    color: #ffffff;
+    font-size: 17px;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 3px solid #f0c68c;
+}
+
+.media-container {
+    width: 100%;
+    height: 200px;
+    background: #19140f;
+    border-radius: 15px;
+    margin: 25px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(230, 160, 112, 0.2);
+}
+
+.heart-launcher {
+    font-size: 70px;
+    animation: heartShoot 3s infinite ease-in-out;
+    position: absolute;
+    color: #ff6677;
+}
+
+.garu-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    animation: imageFadeIn 0.8s ease-out forwards;
+    filter: drop-shadow(0 0 15px rgba(240, 198, 140, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.garu-image:hover {
+    transform: scale(1.05);
+}
+
+@keyframes imageFadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes heartShoot {
+    0% { transform: scale(0.5) translateY(50px); opacity: 0; }
+    50% { transform: scale(1.2) translateY(-10px); opacity: 1; text-shadow: 0 0 30px rgba(255, 102, 119, 0.7); }
+    100% { transform: scale(0.8) translateY(-70px); opacity: 0; }
+}
+
+.footer-msg {
+    color: #f0c68c;
+    font-weight: 500;
+    font-style: italic;
+    margin-top: 25px;
+}
+
+.lock-icon {
+    font-size: 45px; 
+    margin-bottom: 18px; 
+    color: #f0c68c;
+}

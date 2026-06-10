@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Concedido ✨❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <canvas id="canvas-matrix"></canvas>
+
+    <div id="card-1" class="card">
+        <div class="lock-icon">🔒</div>
+        <h2>Acceso Encriptado</h2>
+        <p>Esto se desbloquea con tu nombre y corazón ❤️</p>
+        
+        <input type="text" id="password-input" placeholder="Ingresa la contraseña..." autocomplete="off">
+        <div id="error-box" class="error-text">Contraseña incorrecta, intenta de nuevo.</div>
+        
+        <div class="divider"></div>
+        <button onclick="validateLogin()">Entrar</button>
+    </div>
+
+    <div id="card-2" class="card hidden">
+        <h2>Hola, <span id="display-name" class="highlight-text"></span> ✨</h2>
+        <p>Te invito a hacer algo... ¿Qué prefieres hacer?</p>
+        
+        <div class="casino-viewport">
+            <div id="casino-text" class="casino-strip">🎰 Dale a Girar 🎰</div>
+        </div>
+
+        <div class="btn-flex">
+            <button onclick="startCasino()" class="btn-secondary">🎰 Girar</button>
+            <button id="btn-accept" onclick="goToStep3()" class="btn-gradient" style="display: none;">Aceptar</button>
+        </div>
+    </div>
+
+    <div id="card-3" class="card hidden">
+        <h2>¿A qué hora puedes estar lista?</h2>
+        <p>Elige una opción antes de las 6:00 PM</p>
+        
+        <div class="options-grid">
+            <label class="selection-row"><input type="radio" name="time-pick" value="4:00 PM" checked> 4:00 PM</label>
+            <label class="selection-row"><input type="radio" name="time-pick" value="4:30 PM"> 4:30 PM</label>
+            <label class="selection-row"><input type="radio" name="time-pick" value="5:00 PM"> 5:00 PM</label>
+            <label class="selection-row"><input type="radio" name="time-pick" value="5:30 PM"> 5:30 PM</label>
+        </div>
+
+        <div class="divider"></div>
+        
+        <div class="options-grid">
+            <label class="selection-row"><input type="radio" name="location-pick" value="recogerte en tu casa" checked> Recogerte en tu casa 🚗</label>
+            <label class="selection-row"><input type="radio" name="location-pick" value="encontrarnos allá"> Encontrarnos allá 📍</label>
+        </div>
+
+        <button onclick="goToFinal()" class="btn-gradient">Confirmar Hora</button>
+    </div>
+
+    <div id="card-4" class="card hidden">
+        <h2 class="success-title">¡Todo listo! 😉</h2>
+        <div class="divider"></div>
+        
+        <p id="final-text" class="summary-box"></p>
+        
+        <div class="media-container">
+            <img src="https://images.wikia.nocookie.net/powerpuff/images/6/67/Blossom.png" alt="Garu" class="garu-image">
+        </div>
+
+        <h3 class="footer-msg">La espero bien hermosa... ✨</h3>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
