@@ -45,7 +45,7 @@ function validateLogin() {
     const errorBox = document.getElementById('error-box');
     const card = document.getElementById('card-1');
 
-    if (input.value.trim().toLowerCase() === "lina") {
+    if (input.value.trim() !== "") {
         savedName = input.value.trim();
         document.getElementById('display-name').innerText = savedName;
         card.classList.add('hidden');
